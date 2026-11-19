@@ -58,7 +58,7 @@ For each piece: fan out a builder, then three critics, each a separate subagent 
 
 | Critic | Judges against | Model | Why |
 |---|---|---|---|
-| **Brief** | The stated goal only. Does it do the thing? Ignore aesthetics. | `opus` (Opus 5.5) | Strong judgment on whether the goal is actually met, a tier below the craft critic |
+| **Brief** | The stated goal only. Does it do the thing? Ignore aesthetics. | `opus` (Opus 5.5) | Strong judgment on whether the goal is actually met |
 | **System** | `design-system.md` only. Objective adherence. | `haiku` (Haiku 5.5) | Mechanical adherence checking |
 | **Craft** | `bar.md` and rendered output only. Put ours next to the reference blind with labels stripped, say which is better, name the single biggest gap. | `opus` (Opus 5.5) | Never downgrade this one. A cheap craft critic approves everything and the loop dies on round one. |
 
