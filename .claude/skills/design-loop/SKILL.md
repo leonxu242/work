@@ -60,9 +60,9 @@ For each piece: fan out a builder, then three critics, each a separate subagent 
 |---|---|---|---|
 | **Brief** | The stated goal only. Does it do the thing? Ignore aesthetics. | `opus` (Opus 5.5) | Strong judgment on whether the goal is actually met, a tier below the craft critic |
 | **System** | `design-system.md` only. Objective adherence. | `haiku` (Haiku 5.5) | Mechanical adherence checking |
-| **Craft** | `bar.md` and rendered output only. Put ours next to the reference blind with labels stripped, say which is better, name the single biggest gap. | Strongest available (currently `fable` / Fable 5.2) | Never downgrade this one. A cheap craft critic approves everything and the loop dies on round one. |
+| **Craft** | `bar.md` and rendered output only. Put ours next to the reference blind with labels stripped, say which is better, name the single biggest gap. | `opus` (Opus 5.5) | Never downgrade this one. A cheap craft critic approves everything and the loop dies on round one. |
 
-When you spawn each critic as a subagent, pass the model from the table explicitly (`model: "fable"`, `model: "opus"`, `model: "haiku"`); never let a critic inherit the session's model. If `fable` is unavailable, use the strongest model you can for the Craft critic and say so in the preflight report. Have the Craft critic think at `high` effort; going higher costs more every round with little gain.
+When you spawn each critic as a subagent, pass the model from the table explicitly (`model: "opus"` for Brief and Craft, `model: "haiku"` for System); never let a critic inherit the session's model. If `opus` is unavailable, do not drop the Craft critic to a cheaper model without saying so in the preflight report. Have the Craft critic think at `high` effort; going higher costs more every round with little gain.
 
 The three roles are fixed so they never converge into the same opinion; each can fail work the other two would pass. But write each critic's brief yourself, adapted to this specific goal ("does it hit the brief" means something different for an animation than for a pricing page). Do not reuse generic wording across different goals.
 
